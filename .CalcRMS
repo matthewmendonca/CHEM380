@@ -1,0 +1,62 @@
+from rdkit import Chem 
+from rdkit.Chem import AllChem 
+from rdkit.Chem import rdMolAlign 
+ 
+reference = Chem.SDMolSupplier("5CBWligand.sdf", removeHs=False)[0] 
+mol1 = Chem.SDMolSupplier("mol1.sdf", removeHs=False)[0] 
+mol2 = Chem.SDMolSupplier("mol2.sdf", removeHs=False)[0] 
+mol3 = Chem.SDMolSupplier("mol3.sdf", removeHs=False)[0] 
+mol4 = Chem.SDMolSupplier("mol4.sdf", removeHs=False)[0] 
+mol5 = Chem.SDMolSupplier("mol5.sdf", removeHs=False)[0] 
+mol6 = Chem.SDMolSupplier("mol6.sdf", removeHs=False)[0] 
+mol7 = Chem.SDMolSupplier("mol7.sdf", removeHs=False)[0] 
+mol8 = Chem.SDMolSupplier("mol8.sdf", removeHs=False)[0] 
+mol9 = Chem.SDMolSupplier("mol9.sdf", removeHs=False)[0] 
+mol10 = Chem.SDMolSupplier("mol10.sdf", removeHs=False)[0] 
+ 
+#align onto reference 
+rmsd_1 = rdMolAlign.CalcRMS(mol1, reference) 
+rmsd_2 = rdMolAlign.CalcRMS(mol2, reference) 
+rmsd_3 = rdMolAlign.CalcRMS(mol3, reference) 
+rmsd_4 = rdMolAlign.CalcRMS(mol4, reference) 
+rmsd_5 = rdMolAlign.CalcRMS(mol5, reference) 
+rmsd_6 = rdMolAlign.CalcRMS(mol6, reference) 
+rmsd_7 = rdMolAlign.CalcRMS(mol7, reference) 
+rmsd_8 = rdMolAlign.CalcRMS(mol8, reference) 
+rmsd_9 = rdMolAlign.CalcRMS(mol9, reference) 
+rmsd_10 = rdMolAlign.CalcRMS(mol10, reference) 
+ 
+print("RMSD 1:", rmsd_1) 
+print("RMSD 2:", rmsd_2) 
+print("RMSD 3:", rmsd_3) 
+print("RMSD 4:", rmsd_4) 
+print("RMSD 5:", rmsd_5) 
+print("RMSD 6:", rmsd_6) 
+print("RMSD 7:", rmsd_7) 
+print("RMSD 8:", rmsd_8) 
+print("RMSD 9:", rmsd_9) 
+print("RMSD 10:", rmsd_10) 
+ 
+writer = Chem.SDWriter("Aligned_mol1.sdf") 
+writer.write(mol1) 
+writer = Chem.SDWriter("Aligned_mol2.sdf") 
+writer.write(mol2) 
+writer = Chem.SDWriter("Aligned_mol3.sdf") 
+writer.write(mol3) 
+writer = Chem.SDWriter("Aligned_mol4.sdf") 
+writer.write(mol4) 
+writer = Chem.SDWriter("Aligned_mol5.sdf") 
+writer.write(mol5) 
+writer = Chem.SDWriter("Aligned_mol6.sdf") 
+writer.write(mol6) 
+writer = Chem.SDWriter("Aligned_mol7.sdf") 
+writer.write(mol7) 
+writer = Chem.SDWriter("Aligned_mol8.sdf") 
+writer.write(mol8) 
+writer = Chem.SDWriter("Aligned_mol9.sdf") 
+writer.write(mol9) 
+writer = Chem.SDWriter("Aligned_mol10.sdf") 
+writer.write(mol10) 
+writer.close() 
+
+ 
